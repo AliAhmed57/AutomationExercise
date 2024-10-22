@@ -25,6 +25,10 @@ public class AutomationExercise {
     private DeleteAccount deleteAccount ;
     private LoginUser loginUser ;
     private UserAccount userAccount;
+    private ContactUsForm contactUsForm ;
+    private LogoutUser logoutUser;
+    private TestCasesPage testCasesPage;
+
     @Test
     public void createAccountTestCase()
     {
@@ -69,6 +73,9 @@ public class AutomationExercise {
         deleteAccount = new DeleteAccount(driver) ;
         loginUser = new LoginUser(driver) ;
         userAccount = new UserAccount(driver);
+        logoutUser = new LogoutUser(driver) ;
+        contactUsForm = new ContactUsForm(driver) ;
+        testCasesPage = new TestCasesPage(driver);
     }
 
     @AfterMethod
