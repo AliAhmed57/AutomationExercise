@@ -15,10 +15,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.15.0</version>
+            <version>4.25.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>

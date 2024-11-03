@@ -17,6 +17,7 @@ private final By login_name = (By.xpath("(//input[@data-qa='login-email'])"));
     private final By login_password = (By.name("password"));
     private final By login_Button = By.xpath("(//button[@data-qa='login-button'])") ;
     private final By username_id = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a/b");
+    private final By errormsg_form = By.xpath("//form[@action='/login']//p") ;
 
 
 
@@ -28,7 +29,13 @@ private final By login_name = (By.xpath("(//input[@data-qa='login-email'])"));
         driver.findElement(login_Button).click();
 
     }
-    public void validateOnUser(String username)
+    public void validateOnErrorMsg()
+    {
+        String errorMsg = driver.findElement(errormsg_form).getText();
+        Assert.assertEquals(errorMsg,"Your email or password is incorrect!");
+    }
+
+    public void validateLoggedInOnUser(String username)
     {
         String loggedInUser = driver.findElement(username_id).getText();
         Assert.assertEquals(loggedInUser,username );

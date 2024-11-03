@@ -2,6 +2,7 @@ package automationexercise.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class NewUserSignUpForm {
     private WebDriver driver ;
@@ -23,9 +24,19 @@ public class NewUserSignUpForm {
         driver.findElement(signup_email).sendKeys(email);
         driver.findElement(signup_Button).click();
     }
-    public void validateEmailAlreadyExists()
+    public boolean validateEmailAlreadyExists()
     {
         String emailAlreadyExistsMsg = driver.findElement(signup_form).getText();
+        Assert.assertEquals(emailAlreadyExistsMsg , "Email Address already exist!");
+        return true ;
+    }
 
+    public void signUpWithNewEmail(String name , String email)
+    {
+        driver.findElement(signup_name).clear();
+        driver.findElement(signup_email).clear();
+        driver.findElement(signup_name).sendKeys(name);
+        driver.findElement(signup_email).sendKeys(email);
+        driver.findElement(signup_Button).click();
     }
 }
